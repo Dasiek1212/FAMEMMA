@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="card">
+          <div class="card-content">
+            <nav id="navigation">
+              <div class="nav-wrapper">
+                <a class="brand-logo">
+                  FAME MMA 9
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li class="active"><a>Typowanie</a></li>
+                  <li><a>Wyniki</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <!-- <div class="formSent hide">
+          <div class="card-action">
+              <div class="row">
+                <h4>Powodzenia!</h4>
+                <h5>Twój formularz został wysłany. Lecą do was klubowe gadżety: gwizdki, rękawiczki, paluszki słone!</h5>
+              </div>
+            </div>
+          </div> -->
+          <div class="content">
+              <div class="card-action">
+                <div class="row text">
+                    <h1 class=".countdown">Masz jeszcze:</h1>
+                    <div id="clockdiv">
+                      <div>
+                        <span class="days"></span>
+                        <div class="smalltext">Dni</div>
+                      </div>
+                      <div>
+                        <span class="hours"></span>
+                        <div class="smalltext">Godzin</div>
+                      </div>
+                      <div>
+                        <span class="minutes"></span>
+                        <div class="smalltext">Minut</div>
+                      </div>
+                      <div>
+                        <span class="seconds"></span>
+                        <div class="smalltext">Sekund</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="card-action">
+                  <h5>Dołącz do wspólnej zabawy!</h5>
+                  <p>Wysyłajac ponizszy formularz zoobowiązujesz sie do wpłaty 15 zł dla osoby ktora wygra konkurs typerski.</p>
+                  <p>Ostatni wysłany przez ciebie formularz jest ważny, o ile nie uzgodnisz tego z osobami administującymi.</p>
+                  <p>Hazard uzależnia wiec graj rozważnie!</p>
+               </div>
+            <div class="card-action">
+              <div class="row">
+                <h5>Wpisz swoje dane:</h5>
+                <div class="input-field col s6">
+                  <input id="firstName" type="text">
+                  <label for="firstName">Imie</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="lastName" type="text">
+                  <label for="lastName">Nazwisko</label>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card-image">
+                <img src="images/fight1.jpg">
+            </div>
+            <div class="card-action">
+              <div class="row">
+                <h5>Popek vs Kizo</h5>
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <select id="fightResult1">
+                        <option value="" disabled selected>Wybierz...</option>
+                      </select>
+                      <label>Zawodnik:</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <select id="fightResultType1">
+                        <option value="" disabled selected>Wybierz...</option>
+                        <option>KO</option>
+                        <option>Punkty</option>
+                      </select>
+                      <label>Forma wygranej:</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="card-action">
+              <button id="saveBtn" class="btn waves-effect waves-light" type="submit" name="action">
+                Wyślij
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+        <div>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="materialize/js/materialize.min.js"></script>
+  <script src="counter.js"></script>
+  <script>
+
+
+
+    $( document ).ready(function() {
+       M.AutoInit();
+      $("#saveBtn").on("click", function(){
+
+          if(true)
+          {
+            M.toast({html: 'Uzupełnij wszystkie pola!'})
+          }
+          else
+          {
+            // google.script.run.userSaveForm(userPicks);
+            // $("div.content").addClass("hide");
+            // $("div.formSent").removeClass("hide");
+          }
+      });
+    });
+  </script>
+</html>
