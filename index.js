@@ -116,7 +116,7 @@ $( document ).ready(function() {
         })
         if(!isValid)
         {
-          M.toast({html: 'Uzupełnij wszystkie pola!'})
+          M.toast({html: 'Uzupełnij wszystkie pola!'});
         }
         else
         {
@@ -124,11 +124,15 @@ $( document ).ready(function() {
             {
                 "playerName": FirstName +" "+ LastName,
                 "types": userChoices
-            }
+            };
             //wysyłka formularza
+
             console.log(Data);
+            $("#saveBtn").addClass("hide");
+            $(".description").addClass("hide");
+            $("#fightList").addClass("hide");
+            $(".userData").addClass("hide");
+            $(".formSent").removeClass("hide");
         }
-
-
     });
   });

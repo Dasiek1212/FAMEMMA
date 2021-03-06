@@ -47,7 +47,7 @@ function initializeClock(id, endtime) {
       $(".description").addClass("hide");
       $(".userData").addClass("hide");
       $(".timeOver").removeClass("hide");
-      $("#saveBtn").addClass("disabled");
+      $("#saveBtn").addClass("hide");
       $("#fightList").html("");
     }
   }
