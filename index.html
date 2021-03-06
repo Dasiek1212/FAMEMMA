@@ -76,34 +76,9 @@
               </div>
             </div>
 
+            <div id="fightList">
 
-            <div class="card-image">
-                <img src="images/fight1.jpg">
             </div>
-            <div class="card-action">
-              <div class="row">
-                <h5>Popek vs Kizo</h5>
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <select id="fightResult1">
-                        <option value="" disabled selected>Wybierz...</option>
-                      </select>
-                      <label>Zawodnik:</label>
-                    </div>
-                    <div class="input-field col s6">
-                      <select id="fightResultType1">
-                        <option value="" disabled selected>Wybierz...</option>
-                        <option>KO</option>
-                        <option>Punkty</option>
-                      </select>
-                      <label>Forma wygranej:</label>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
             <div class="card-action">
               <button id="saveBtn" class="btn waves-effect waves-light" type="submit" name="action">
                 Wyślij
@@ -114,29 +89,47 @@
         <div>
       </div>
     </div>
+
+
+
+    <!-- TEMPLATE -->
+    <script id="fightTemplate" type="text/html">
+      <div class="card-image">
+        <img data-src="imageUrl">
+    </div>
+    <div data-id="fightId" class="card-action fightCard">
+      <div class="row">
+        <h5 data-innerHTML="fightName"></h5>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <select id="fightResult">
+                <option value="" disabled selected>Wybierz...</option>
+                <option data-value="fighterLeftId" data-innerHTML="fighterLeftName"></option>
+                <option data-value="fighterRightId" data-innerHTML="fighterRightName"></option>
+              </select>
+              <label>Zawodnik:</label>
+            </div>
+            <div class="input-field col s6">
+              <select id="fightResultType">
+                <option value="" disabled selected>Wybierz...</option>
+                <option value="1">KO</option>
+                <option value="2">Punkty</option>
+              </select>
+              <label>Forma wygranej:</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </script>
+    <!-- TEMPLATE -->
+
+
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="jquery.loadTemplate.min.js"></script>
   <script src="materialize/js/materialize.min.js"></script>
   <script src="counter.js"></script>
-  <script>
-
-
-
-    $( document ).ready(function() {
-       M.AutoInit();
-      $("#saveBtn").on("click", function(){
-
-          if(true)
-          {
-            M.toast({html: 'Uzupełnij wszystkie pola!'})
-          }
-          else
-          {
-            // google.script.run.userSaveForm(userPicks);
-            // $("div.content").addClass("hide");
-            // $("div.formSent").removeClass("hide");
-          }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </html>
