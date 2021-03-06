@@ -21,6 +21,7 @@ function initializeClock(id, endtime) {
   var secondsSpan = clock.querySelector('.seconds');
 
   function updateClock() {
+    checkDeadline();
     var t = getTimeRemaining(endtime);
 
     daysSpan.innerHTML = t.days;
@@ -38,4 +39,16 @@ function initializeClock(id, endtime) {
   }
 
   var deadline = new Date("2021-03-06T20:00:00");
+  function checkDeadline()
+  {
+    if(new Date() > deadline)
+    {
+      $(".counter").addClass("hide");
+      $(".description").addClass("hide");
+      $(".userData").addClass("hide");
+      $(".timeOver").removeClass("hide");
+      $("#saveBtn").addClass("disabled");
+      $("#fightList").html("");
+    }
+  }
   initializeClock('clockdiv', deadline);

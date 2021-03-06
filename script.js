@@ -36,19 +36,22 @@ $( document ).ready(function() {
     ]
     for(let i=0; i< initialData.length; i++)
     {
-      var fight = json[i];
-      $('<div/>').loadTemplate(
-        $('#fightTemplate'),
-        {
-          imageUrl: fight.imageUrl,
-          fightName: fight.fighterLeft.fighterName + " vs " + fight.fighterRight.fighterName,
-          fighterLeftId: fight.fighterLeft.fighterId,
-          fighterRightId: fight.fighterRight.fighterId,
-          fighterLeftName: fight.fighterLeft.fighterName,
-          fighterRightName: fight.fighterRight.fighterName,
-          fightId: fight.fightId
-        }
-      ).appendTo("#fightList");
+      if(new Date() < new Date("2021-03-06T20:00:00"))
+      {
+        var fight = initialData[i];
+        $('<div/>').loadTemplate(
+            $('#fightTemplate'),
+            {
+                imageUrl: fight.imageUrl,
+                fightName: fight.fighterLeft.fighterName + " vs " + fight.fighterRight.fighterName,
+                fighterLeftId: fight.fighterLeft.fighterId,
+                fighterRightId: fight.fighterRight.fighterId,
+                fighterLeftName: fight.fighterLeft.fighterName,
+                fighterRightName: fight.fighterRight.fighterName,
+                fightId: fight.fightId
+            }
+            ).appendTo("#fightList");
+       }
     }
     $("select").on("change", function() {
         $(this).parent().find("input").removeClass("fieldEmpty");
@@ -65,6 +68,7 @@ $( document ).ready(function() {
         var userChoices = [];
         if(FirstName === "" || LastName === "")
         {
+            isValid = false;
             if(FirstName === "")
                 $("#firstName").addClass("fieldEmpty");
             if(LastName === "")
