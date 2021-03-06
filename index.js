@@ -1,5 +1,4 @@
-$( document ).ready(function() {
-    var initialData = 
+var mockdata = 
     [
       {
           "fightId": 1, 
@@ -34,31 +33,48 @@ $( document ).ready(function() {
           "winType": 2
         }
     ]
-    for(let i=0; i< initialData.length; i++)
-    {
-      if(new Date() < new Date("2021-03-06T20:00:00"))
-      {
-        var fight = initialData[i];
-        $('<div/>').loadTemplate(
-            $('#fightTemplate'),
-            {
-                imageUrl: fight.imageUrl,
-                fightName: fight.fighterLeft.fighterName + " vs " + fight.fighterRight.fighterName,
-                fighterLeftId: fight.fighterLeft.fighterId,
-                fighterRightId: fight.fighterRight.fighterId,
-                fighterLeftName: fight.fighterLeft.fighterName,
-                fighterRightName: fight.fighterRight.fighterName,
-                fightId: fight.fightId
-            }
-            ).appendTo("#fightList");
-       }
+
+$( document ).ready(function() {
+    var initialData = []
+    function getData()
+    {   
+        //inicjalizacja danych
+        initialData = mockdata;
+
+
+        for(let i=0; i< initialData.length; i++)
+        {
+          if(new Date() < new Date("2021-03-06T16:11:00"))
+          {
+            var fight = initialData[i];
+            $('<div/>').loadTemplate(
+                $('#fightTemplate'),
+                {
+                    imageUrl: fight.imageUrl,
+                    fightName: fight.fighterLeft.fighterName + " vs " + fight.fighterRight.fighterName,
+                    fighterLeftId: fight.fighterLeft.fighterId,
+                    fighterRightId: fight.fighterRight.fighterId,
+                    fighterLeftName: fight.fighterLeft.fighterName,
+                    fighterRightName: fight.fighterRight.fighterName,
+                    fightId: fight.fightId
+                }
+                ).appendTo("#fightList");
+           }
+        }
+        $(".loader").addClass("hide")
+        $("#saveBtn").removeClass("disabled")
+        $("#fightList").removeClass("hide")
+        $("select").on("change", function() {
+            $(this).parent().find("input").removeClass("fieldEmpty");
+        });
+        $("input").on("change", function() {
+            $(this).removeClass("fieldEmpty");
+        });
     }
-    $("select").on("change", function() {
-        $(this).parent().find("input").removeClass("fieldEmpty");
-    });
-    $("input").on("change", function() {
-        $(this).removeClass("fieldEmpty");
-    });
+    getData();
+
+
+
   
     M.AutoInit();
     $("#saveBtn").on("click", function(){
@@ -90,8 +106,8 @@ $( document ).ready(function() {
             {
                 var userChoice = {
                     "fightId": FightId,
-                    "fightResult": FightResult,
-                    "FightResultType": FightResultType
+                    "winnerPredictionId": FightResult,
+                    "winTypePredictionId": FightResultType
                 };
                 userChoices.push(userChoice);
             }
@@ -104,22 +120,13 @@ $( document ).ready(function() {
         {
             var Data =
             {
-              "userData": {
-                 "firstName": FirstName,
-                  "lastName": LastName
-                },
-                "userChoices": userChoices
+                "playerName": FirstName +" "+ LastName,
+                "types": userChoices
             }
+            //wysyłka formularza
             console.log(Data);
         }
 
 
-        
-        // else
-        // {
-        //   // google.script.run.userSaveForm(userPicks);
-        //   // $("div.content").addClass("hide");
-        //   // $("div.formSent").removeClass("hide");
-        // }
     });
   });

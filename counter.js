@@ -38,7 +38,7 @@ function initializeClock(id, endtime) {
     var timeinterval = setInterval(updateClock, 1000);
   }
 
-  var deadline = new Date("2021-03-06T20:00:00");
+  var deadline = new Date("2021-03-06T16:11:00");
   function checkDeadline()
   {
     if(new Date() > deadline)

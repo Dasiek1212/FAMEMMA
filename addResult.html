@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="card">
+          <div class="card-content">
+            <nav id="navigation">
+              <div class="nav-wrapper">
+                <a class="brand-logo">
+                  <img src="images/logo.jpg"/>
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="index.html">Typowanie</a></li>
+                  <li class="active"><a>Wyniki</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="card-image">
+            <img src="images/main.jpg">
+          </div>
+          <div class="card-action loader">
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-action userData hide">
+            <div class="row">
+              <h5>Formularz wyniku walki:</h5>
+              <div class="input-field col s4">
+                <select id="fight">
+                  <option value="" disabled selected>Wybierz...</option>
+                </select>
+                <label>Walka:</label>
+              </div>
+              <div class="input-field col s4">
+                <select id="fighter">
+                  <option value="" disabled selected>Wybierz...</option>
+                </select>
+                <label>Walka:</label>
+              </div>
+              <div class="input-field col s4">
+                <select id="winType">
+                  <option value="" disabled selected>Wybierz...</option>
+                  <option value="1">KO</option>
+                  <option value="2">Punkty</option>
+                </select>
+                <label>Walka:</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-action">
+            <button id="saveBtn" class="btn waves-effect waves-light disabled" type="submit" name="action">
+              Wyślij
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          </div>
+          </div>
+        <div>
+      </div>
+    </div>
+
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="materialize/js/materialize.min.js"></script>
+  <script src="addResult.js"></script>
+</html>

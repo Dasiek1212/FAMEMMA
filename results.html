@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <div class="card">
+          <div class="card-content">
+            <nav id="navigation">
+              <div class="nav-wrapper">
+                <a class="brand-logo">
+                  <img src="images/logo.jpg"/>
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="index.html">Typowanie</a></li>
+                  <li class="active"><a>Wyniki</a></li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <div class="card-image">
+            <img src="images/main.jpg">
+          </div>
+          <div class="card-action loader">
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-action tableBetting hide">
+            <h3 class="center">Tabela obstawiania:</h3>
+            <table class="bettingResultsTable">
+              <thead>
+                <tr>
+                  <th>Użytkownik</th>
+                  <th>Wynik</th>
+              </tr>
+              </thead>
+              <tbody id="scoreTableBody">
+              </tbody>
+            </table>
+          </div>
+          <div class="card-action tableFight hide">
+            <h3 class="center">Tabela walk:</h3>
+            <table class="FightResultsTable">
+              <thead>
+                <tr>
+                    <th>Walka</th>
+                    <th>Wygrany</th>
+                    <th>Forma wygranej</th>
+                </tr>
+              </thead>
+              <tbody id="fightTableBody">
+              </tbody>
+            </table>
+          </div>
+
+            <div class="card-action center refreshBtn">
+                <a class="btn-floating btn-large waves-effect waves-light"><i class="material-icons refresh">loop</i></a>
+            </div>
+          </div>
+          </div>
+        <div>
+      </div>
+    </div>
+
+
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="materialize/js/materialize.min.js"></script>
+  <script src="results.js"></script>
+</html>

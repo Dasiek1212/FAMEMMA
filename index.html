@@ -19,7 +19,7 @@
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                   <li class="active"><a>Typowanie</a></li>
-                  <li><a>Wyniki</a></li>
+                  <li><a href="results.html">Wyniki</a></li>
                 </ul>
               </div>
             </nav>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="timeOver row hide">
                     <h3>Czas sie skończył!</h3>
-                    <p>Mozesz przejsc na zakładke wyniki aby obserwowac poczynania graczy. Do zobaczenia na Fame 10</p>
+                    <p>Mozesz przejsc na zakładke wyniki aby obserwowac poczynania graczy. Do zobaczenia na FAME MMA 10!</p>
                 </div>
               </div>
               </div>
@@ -83,12 +83,24 @@
                 </div>
               </div>
             </div>
-
-            <div id="fightList">
+            <div class="card-action loader center">
+              <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="fightList" class="hide">
 
             </div>
             <div class="card-action">
-              <button id="saveBtn" class="btn waves-effect waves-light" type="submit" name="action">
+              <button id="saveBtn" class="btn waves-effect waves-light disabled" type="submit" name="action">
                 Wyślij
                 <i class="material-icons right">send</i>
               </button>
@@ -133,11 +145,10 @@
     </script>
     <!-- TEMPLATE -->
 
-
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="jquery.loadTemplate.min.js"></script>
   <script src="materialize/js/materialize.min.js"></script>
   <script src="counter.js"></script>
-  <script src="script.js"></script>
+  <script src="index.js"></script>
 </html>
