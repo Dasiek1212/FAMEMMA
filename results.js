@@ -1,33 +1,39 @@
-mockfights =     [
-    {
-      "fightId": 0,
-      "winTypeId": 1,
-      "fightLabel": "najman vs kasjo",
-      "winner": {
-           "winnerId": 1,
-          "winnerName": "kasjo"
-        }
-    }
-];
+// mockfights =     [
+//     // {
+//     //   "fightId": 0,
+//     //   "winTypeId": 1,
+//     //   "fightLabel": "najman vs kasjo",
+//     //   "winner": {
+//     //        "winnerId": 1,
+//     //       "winnerName": "kasjo"
+//     //     }
+//     // }
+// ];
 
-mockscore = [
-    {
-      "playerName": "Dasie2k",
-      "scoredPoints": 32
-    }
-];
+// mockscore = [
+//     // {
+//     //   "playerName": "Dasie2k",
+//     //   "scoredPoints": 32
+//     // }
+// ];
 
 
 $( document ).ready(function() {
+
     
     var initialDataFights = []
 
     var initialDataScores = []
+
     function getDate()
     {
+        $.get( "/results", function(data) {
+            initialDataFights = data;
+         });
+         $.get( "/scores", function(data) {
+            initialDataScores = data;
+         });
         //inicjalizacja
-        initialDataFights = mockfights;
-        initialDataScores = mockscore;
         $(".loader").addClass("hide");
         $(".tableBetting").removeClass("hide");
         $(".tableFight").removeClass("hide");

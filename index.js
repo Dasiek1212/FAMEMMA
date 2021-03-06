@@ -1,45 +1,56 @@
-var mockdata = 
-    [
-      {
-          "fightId": 1, 
-          "fighterLeft": {"fighterId": 3, "fighterName": "Rozpara"}, 
-          "fighterRight": {"fighterId": 4, "fighterName": "Boxdel"},
-          "imageUrl": "images/fight1.jpg",
-          "winnerId": 3, 
-          "winType": 2
-        },    
-        {
-          "fightId": 2, 
-          "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
-          "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
-          "imageUrl": "images/fight2.jpg",
-          "winnerId": 3, 
-          "winType": 2
-        },
-        {
-          "fightId": 3, 
-          "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
-          "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
-          "imageUrl": "images/fight2.jpg",
-          "winnerId": 3, 
-          "winType": 2
-        },
-        {
-          "fightId": 4, 
-          "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
-          "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
-          "imageUrl": "images/fight2.jpg",
-          "winnerId": 3, 
-          "winType": 2
-        }
-    ]
+// var mockdata = 
+//     [
+//       {
+//           "fightId": 1, 
+//           "fighterLeft": {"fighterId": 3, "fighterName": "Rozpara"}, 
+//           "fighterRight": {"fighterId": 4, "fighterName": "Boxdel"},
+//           "imageUrl": "images/fight1.jpg",
+//           "winnerId": 3,
+//           "fighterRightOdd": 2.52,
+//           "fighterLeftOdd": 1.52,
+//           "winType": 2
+//         },    
+//         {
+//           "fightId": 2, 
+//           "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
+//           "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
+//           "imageUrl": "images/fight2.jpg",
+//           "winnerId": 3,
+//           "fighterRightOdd": 2.52,
+//           "fighterLeftOdd": 1.52,
+//           "winType": 2
+//         },
+//         {
+//           "fightId": 3, 
+//           "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
+//           "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
+//           "imageUrl": "images/fight2.jpg",
+//           "winnerId": 3,
+//           "fighterRightOdd": 2.52,
+//           "fighterLeftOdd": 1.52,
+//           "winType": 2
+//         },
+//         {
+//           "fightId": 4, 
+//           "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
+//           "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
+//           "imageUrl": "images/fight2.jpg",
+//           "winnerId": 3,
+//           "fighterRightOdd": 2.52,
+//           "fighterLeftOdd": 1.52,
+//           "winType": 2
+//         }
+//     ]
 
 $( document ).ready(function() {
     var initialData = []
     function getData()
     {   
         //inicjalizacja danych
-        initialData = mockdata;
+        // initialData = mockdata;
+         $.get( "/getListOfFights", function(data) {
+             initialData = data;
+         });
 
 
         for(let i=0; i< initialData.length; i++)
@@ -56,6 +67,8 @@ $( document ).ready(function() {
                     fighterRightId: fight.fighterRight.fighterId,
                     fighterLeftName: fight.fighterLeft.fighterName,
                     fighterRightName: fight.fighterRight.fighterName,
+                    RightOdd: fight.fighterRightOdd,
+                    LeftOdd: fight.fighterLeftOdd,
                     fightId: fight.fightId
                 }
                 ).appendTo("#fightList");
@@ -125,9 +138,11 @@ $( document ).ready(function() {
                 "playerName": FirstName +" "+ LastName,
                 "types": userChoices
             };
+            $.post("/saveForm", Data, function(result){
+                console.log(result);
+            });
             //wysyłka formularza
 
-            console.log(Data);
             $("#saveBtn").addClass("hide");
             $(".description").addClass("hide");
             $("#fightList").addClass("hide");

@@ -1,37 +1,37 @@
-var mockdata = [
-    {
-        "fightId": 1, 
-        "fighterLeft": {"fighterId": 3, "fighterName": "Rozpara"}, 
-        "fighterRight": {"fighterId": 4, "fighterName": "Boxdel"},
-        "imageUrl": "images/fight1.jpg",
-        "winnerId": 3, 
-        "winType": 2
-      },    
-      {
-        "fightId": 2, 
-        "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
-        "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
-        "imageUrl": "images/fight2.jpg",
-        "winnerId": 3, 
-        "winType": 2
-      },
-      {
-        "fightId": 3, 
-        "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
-        "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
-        "imageUrl": "images/fight2.jpg",
-        "winnerId": 3, 
-        "winType": 2
-      },
-      {
-        "fightId": 4, 
-        "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
-        "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
-        "imageUrl": "images/fight2.jpg",
-        "winnerId": 3, 
-        "winType": 2
-      }
-]
+// var mockdata = [
+//     // {
+//     //     "fightId": 1, 
+//     //     "fighterLeft": {"fighterId": 3, "fighterName": "Rozpara"}, 
+//     //     "fighterRight": {"fighterId": 4, "fighterName": "Boxdel"},
+//     //     "imageUrl": "images/fight1.jpg",
+//     //     "winnerId": 3, 
+//     //     "winType": 2
+//     //   },    
+//     //   {
+//     //     "fightId": 2, 
+//     //     "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
+//     //     "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
+//     //     "imageUrl": "images/fight2.jpg",
+//     //     "winnerId": 3, 
+//     //     "winType": 2
+//     //   },
+//     //   {
+//     //     "fightId": 3, 
+//     //     "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
+//     //     "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
+//     //     "imageUrl": "images/fight2.jpg",
+//     //     "winnerId": 3, 
+//     //     "winType": 2
+//     //   },
+//     //   {
+//     //     "fightId": 4, 
+//     //     "fighterLeft": {"fighterId": 3, "fighterName": "Kasjo"}, 
+//     //     "fighterRight": {"fighterId": 4, "fighterName": "Gola"},
+//     //     "imageUrl": "images/fight2.jpg",
+//     //     "winnerId": 3, 
+//     //     "winType": 2
+//     //   }
+// ]
 
 
 
@@ -40,9 +40,11 @@ $( document ).ready(function() {
     var initialData = [];
     
     function getDate()
-    {   //tutaj inicjalizacja danych
-        initialData = mockdata;
-
+    {   
+        //tutaj inicjalizacja danych
+        $.get( "/getListOfFights", function(data) {
+            initialData = data;
+         });
         
         for(let i=0; i< initialData.length; i++)
         {
@@ -97,7 +99,10 @@ $( document ).ready(function() {
 
 
             //wysyłka formularza
-            console.log(data);
+            $.post("/results", Data, function(result){
+                console.log(result);
+                $(".jsonReturned").html.result;
+            });
 
 
             $(".userData").addClass("hide");

@@ -70,3 +70,12 @@
         transform: rotate(360deg);
         transition: all 1s ease-in-out 0s;
       }
+      .course
+      {
+        background-color: aquamarine;
+        text-align: center;
+        padding: 5px;
+        margin: 2px;
+        border-radius: 2px;
+        border: 1px solid black;
+      }
