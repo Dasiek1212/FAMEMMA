@@ -57,7 +57,9 @@ $( document ).ready(function() {
               return "Brak danych";
         }
     }
-
+    $(".pamieta").on("click", function(){
+        M.toast({html: 'Upss.. byku brak ci uprawnien!'})
+    })
     $(".refreshBtn").on("click", function()
     {
         location.reload();

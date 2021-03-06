@@ -44,7 +44,7 @@ $( document ).ready(function() {
 
         for(let i=0; i< initialData.length; i++)
         {
-          if(new Date() < new Date("2021-03-06T16:11:00"))
+          if(new Date() < new Date("2021-03-06T20:00:00"))
           {
             var fight = initialData[i];
             $('<div/>').loadTemplate(
@@ -72,7 +72,9 @@ $( document ).ready(function() {
         });
     }
     getData();
-
+    $(".pamieta").on("click", function(){
+        M.toast({html: 'Upss.. byku brak ci uprawnien!'})
+    })
 
 
   
