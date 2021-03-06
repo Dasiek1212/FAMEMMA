@@ -77,6 +77,10 @@ $( document ).ready(function() {
             }
         } 
     })
+    $(".refreshBtn").on("click", function()
+    {
+        location.reload();
+    })
     $("#saveBtn").on("click", function(){
         var fightId = $("select#fight").val();
         var winnerId = $("select#fighter").val();
@@ -94,6 +98,12 @@ $( document ).ready(function() {
 
             //wysyłka formularza
             console.log(data);
+
+
+            $(".userData").addClass("hide");
+            $(".saveBtnCont").addClass("hide");
+            $(".formSent").removeClass("hide");
+            $(".refreshBtn").removeClass("hide");
         }
     });
 });
